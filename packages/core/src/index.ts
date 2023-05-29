@@ -11,6 +11,7 @@ const createScript = async () => {
 export default function vitePluginConsole() {
     const plugin: Plugin = {
       name: 'transform-console-source',
+      apply: 'serve',
       transform(src, id) {
           if(id.includes('src')) { // 只解析src 下的console
               const matchs = src.matchAll(/console.log\((.*)\);?/g);
