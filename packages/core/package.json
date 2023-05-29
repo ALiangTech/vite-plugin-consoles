@@ -2,11 +2,12 @@
   "name": "vite-plugin-consoles",
   "private": false,
   "description": "一个vite插件 用来扩展你的console.log",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "files": [
     "dist",
     "index.ts",
+    "README.md",
     "public"
   ],
   "main": "./dist/index.cjs",
