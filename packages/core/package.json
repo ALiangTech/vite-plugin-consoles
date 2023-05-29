@@ -1,6 +1,7 @@
 {
   "name": "vite-plugin-consoles",
   "private": false,
+  "description": "一个vite插件 用来扩展你的console.log",
   "version": "1.0.0",
   "type": "module",
   "files": [
@@ -19,6 +20,21 @@
   "scripts": {
     "dev": "vite",
     "build": "unbuild"
+  },
+  "keywords": [
+    "vite",
+    "console",
+    "vite-plugin"
+  ],
+  "author": "AliangTech",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ALiangTech/vite-plugin-consoles.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/ALiangTech/vite-plugin-consoles/issues"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
