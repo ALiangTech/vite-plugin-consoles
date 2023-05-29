@@ -27,3 +27,10 @@
    plugins: [vue(), vitePluginConsole()],
    })
   ```
+
+
+### 如果要使用系统的console 请使用originConsole
+
+```javascript 
+originConsole.log()  // 等价于console.log
+```
