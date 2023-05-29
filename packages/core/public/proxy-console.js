@@ -1,32 +1,31 @@
-
-declare const window: any;
-
 const originConsole = window.console;
-function withLogging(func:Function) {
-    return function(...args: any[]) {
+function withLogging(func) {
+    return function(...args) {
         let result = null;
         if(Array.isArray(args[args.length-1])) {
           // 走插件逻辑打印
           const lastItem = args.pop();
           const firstItem = lastItem.shift()
           if(firstItem === 'isPlugin') {
-             originConsole.log(`我准备打印了`);
-             lastItem.forEach((item: any,index: string | number) => {
-              //@ts-ignore
+             originConsole.log(`%c----->我准备打印了<------`, "color: skyblue;padding: 2px");
+             lastItem.forEach((item,index) => {
               originConsole.log(`${item}=`, args[index])
              })
-            originConsole.log(`----->打印结束<------`);
+            originConsole.log(`%c----->打印结束<------`, "color: skyblue;padding: 2px");
+            originConsole.log(`\n`);
           }
         } else {
-          //@ts-ignore
           result = func.apply(this, args);
         }
         return result;
     }
 }
+
 var console = new Proxy(window.console, {
     get(target, property) {
-        return withLogging(target[property])
+        if(property === 'log') {
+          return withLogging(target[property])
+        }
+        return target[property]
     },
-
 })

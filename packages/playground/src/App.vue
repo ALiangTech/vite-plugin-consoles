@@ -1,5 +1,8 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+const people = { name: 'kk', age: 11 }
+console.log("xxx")
+console.log(people, 'xxx', 10)
 </script>
 
 <template>
