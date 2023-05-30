@@ -1,8 +1,12 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 const people = { name: 'kk', age: 11 }
-console.log("xxx")
-console.log(people, 'xxx', 10)
+console.log("xxx");
+console.log("yy");
+console.log(people.name, 'xxx', 10)
+console.log(10);
+console.log(1111);
+const x = "console.log(xxx)"
 </script>
 
 <template>
@@ -13,6 +17,7 @@ console.log(people, 'xxx', 10)
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
+    <div>{{ x }}</div>ssss
   </div>
   <HelloWorld msg="Vite + Vue" />
 </template>

@@ -14,22 +14,28 @@ export default function vitePluginConsole() {
       apply: 'serve',
       transform(src, id) {
           if(id.includes('src')) { // 只解析src 下的console
-             console.log(src, "src")
-              const matchs = src.matchAll(/console.log\((.*?)\)/g);
+              const matchs = src.matchAll(/console.log\((.*?)\)(.*)?/g);
              [...matchs].forEach((item) => {
                       const [matchStr, args] = item;
-                      let replaceMatch = ''
-                      const haveSemicolon = matchStr.endsWith(";"); 
-                      const sliceIndex = haveSemicolon ? -2 : -1;
-                      const temp = matchStr.slice(0,sliceIndex); 
-                      const tempArgs = args.split(",").map(item => {
-                          if(item.endsWith('"')) {
-                              return item
-                          }
-                          return `"${item}"`
-                      }).join(",")
-                      replaceMatch = `${temp},['isPlugin',${tempArgs}]);`
-                      src = src.replace(matchStr, replaceMatch)
+                      // 如果不是分号 或者) 结尾 说明不是log函数
+                      console.log(matchStr, "matchStr")
+                      if(matchStr.endsWith(';') || matchStr.endsWith(')')) {
+                        console.log(matchStr, args, "matchStr, args")
+                        let replaceMatch = ''
+                        const haveSemicolon = matchStr.endsWith(";"); 
+                        const sliceIndex = haveSemicolon ? -2 : -1;
+                        const temp = matchStr.slice(0,sliceIndex); 
+                        const tempArgs = args.split(",").map(item => {
+                            if(item.endsWith('"')) {
+                                return item
+                            }
+                            return `"${item}"`
+                        }).join(",")
+                          // originConsole 用来做源代码定位
+                          // 使用正则表达式替换双引号或单引号为空字符串
+                        replaceMatch = `originConsole.log("%c${matchStr.replace(/["']/g, '')}输出的源码位置", "color:#42b883; background-color: #fff;display:flex;padding: 8px");${temp},['isPlugin',${tempArgs}]);`
+                        src = src.replace(matchStr, replaceMatch)
+                    }
               });
           }
           return {
