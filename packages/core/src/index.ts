@@ -14,7 +14,8 @@ export default function vitePluginConsole() {
       apply: 'serve',
       transform(src, id) {
           if(id.includes('src')) { // 只解析src 下的console
-              const matchs = src.matchAll(/console.log\((.*)\);?/g);
+             console.log(src, "src")
+              const matchs = src.matchAll(/console.log\((.*?)\)/g);
              [...matchs].forEach((item) => {
                       const [matchStr, args] = item;
                       let replaceMatch = ''
