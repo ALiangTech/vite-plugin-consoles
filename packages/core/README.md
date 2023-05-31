@@ -34,3 +34,10 @@
 ```javascript 
 originConsole.log()  // 等价于console.log
 ```
+
+
+### bugfix
+
+- 修复之前正则能匹配到字符串里面的console.log问题
+- 修复之前只匹配src 路径问题
+- 添加文件解析匹配参数 include
