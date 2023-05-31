@@ -2,7 +2,7 @@
   "name": "vite-plugin-consoles",
   "private": false,
   "description": "一个vite插件 用来扩展你的console.log",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "files": [
     "dist",
