@@ -1,36 +1,21 @@
-# vite-plugin-consoles
+<p align="center">
+    <img width="180" src="https://vitejs.dev/logo.svg" alt="Vite logo">
+</p>
+<br/>
+<p align="center">
+  <a href="https://www.npmjs.com/package/vite-plugin-consoles"><img src="https://img.shields.io/badge/npm-v1.0.5-green" alt="npm package"></a>
+  <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
+</p>
+<br/>
 
-## 功能
+# Vite Plugin Vue
 
-- 打印输出对应的 变量名称
+## Packages
 
-  ```javascript
-    const test = { name: 'kk'}
-    console.log(test.name) // 控制台输出 test.name = kk
-  ```
+| Package                                           | Version (click for changelogs)                                                                                                       |
+| ------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| [vite-plugin-console](packages/core)         | [![vite-plugin-console version](https://img.shields.io/badge/-v1.0.5-green)](packages/core/README.md)             |
 
+## License
 
-## 安装
-
-```bash
-  pnpm add vite-plugin-consoles -D
-```
-
-## 使用
-
-  ```javascript
-   import { defineConfig } from 'vite'
-   import vue from '@vitejs/plugin-vue'
-   import vitePluginConsole  from 'vite-plugin-consoles'
-   // https://vitejs.dev/config/
-   export default defineConfig({
-   plugins: [vue(), vitePluginConsole()],
-   })
-  ```
-
-
-### 如果要使用系统的console 请使用originConsole
-
-```javascript 
-originConsole.log()  // 等价于console.log
-```
+[MIT](LICENSE).
