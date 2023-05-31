@@ -5,11 +5,12 @@ const test = ref('name');
 const people = { name: 'kk', age: 11 }
 console.log("xxx");
 console.log("yy");
-console.log(people.name, 'xxx', 10)
+console.log(people.name, people.age)
+console.log(10);console.log(10);
 console.log(10);
 console.log(1111);
 console.log(people);
-console.log(test);
+console.log(test.value);
 const x = "console.log(xxx)"
 </script>
 
