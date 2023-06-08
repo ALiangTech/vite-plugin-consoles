@@ -23,7 +23,7 @@ const checkConsoleLogCount = (strings: string) => {
 
 // 创建源码定位输出
 const createSourcePosition = (args:string, options:ConsolePluginOptions) => {
-    const { sourceStyle ="color:#646cff; background-color: #efdbff ;display:flex;padding: 8px" } = options
+    const { sourceStyle ="color:#646cff; background-color: #efdbff ;display:flex;padding: 8px;min-width: 300px" } = options
     return `originConsole.log('%c console.log(${args.replace(/"'/g, '"')}) 输出的源码位置', "${sourceStyle}");`
 };
 
@@ -43,8 +43,6 @@ export default function vitePluginConsole(options:ConsolePluginOptions = {}) {
               const matchs = src.matchAll(/console.log\((.*?)\)(.*)?/g); // 一行多个log 也会匹配 这种不考虑处理 console.log(xx);;;;;;console.log('yy') 走原始打印
              [...matchs].forEach((item) => {
                       const [matchStr, args] = item;
-                      console.log(args, "args");
-                      
                       // 如果不是分号 或者) 结尾 说明不是log函数
                       if(matchStr.endsWith(';') || matchStr.endsWith(')')) {
                         let replaceMatch = ''
