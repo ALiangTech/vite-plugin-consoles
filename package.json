@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "pnpm -r -F='./packages/*' run dev",
+    "dev": "pnpm -r -F=./packages/* run dev",
     "build": "pnpm -r --parallel -F='./packages/core' run build"
   },
   "keywords": [],
