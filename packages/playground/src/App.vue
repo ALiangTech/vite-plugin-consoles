@@ -3,9 +3,12 @@ import HelloWorld from './components/HelloWorld.vue'
 import {ref} from 'vue';
 const test = ref('name');
 const people = { name: 'kk', age: 11 }
-console.log(test.value);
-console.log(people);
-const x = "console.log(xxx)"
+function name(params) {
+  
+}
+console.log(test.value);console.log(test.value);
+const x = "ss"
+console.log(test,test, x);
 </script>
 
 <template>

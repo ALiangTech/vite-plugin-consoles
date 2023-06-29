@@ -7,11 +7,18 @@ function withLogging(func) {
           const lastItem = args.pop();
           const firstItem = lastItem.shift()
           if(firstItem === 'isPlugin') {
+<<<<<<< Updated upstream
             originConsole.log(`\n`);
+=======
+>>>>>>> Stashed changes
              lastItem.forEach((item,index) => {
               originConsole.log(`${item} =`,args[index])
              })
+<<<<<<< Updated upstream
             originConsole.log(`\n`);
+=======
+             originConsole.groupEnd();
+>>>>>>> Stashed changes
           }
         } else {
           result = func.apply(this, args);
